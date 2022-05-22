@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import IMRservicos.BanklineApi.DTO.NovoCorrentista;
-import IMRservicos.BanklineApi.model.Correntista;
-import IMRservicos.BanklineApi.repository.CorrentistaRepository;
+import IMRservicos.BanklineApi.model.Movimentacao;
+import IMRservicos.BanklineApi.repository.MovimentacaoRepository;
 import IMRservicos.BanklineApi.service.CorrentistaService;
 
 @RestController
-@RequestMapping ("/correntistas")
-public class CorrentistaControler {
+@RequestMapping ("/movimentacoes")
+public class MovimentacaoControler {
 	
 	@Autowired
-	private CorrentistaRepository repository;
+	private MovimentacaoRepository repository;
 	
 	@Autowired
 	private CorrentistaService service;
 	
 	@GetMapping
-	public List<Correntista> findAll(){
+	public List<Movimentacao> findAll(){
 		return repository.findAll();
 		
 	}
