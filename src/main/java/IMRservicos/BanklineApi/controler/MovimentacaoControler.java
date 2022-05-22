@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import IMRservicos.BanklineApi.DTO.NovoCorrentista;
+import IMRservicos.BanklineApi.DTO.NovaMovimentacao;
 import IMRservicos.BanklineApi.model.Movimentacao;
 import IMRservicos.BanklineApi.repository.MovimentacaoRepository;
-import IMRservicos.BanklineApi.service.CorrentistaService;
+import IMRservicos.BanklineApi.service.MovimentacaoService;
 
 @RestController
 @RequestMapping ("/movimentacoes")
@@ -22,7 +22,7 @@ public class MovimentacaoControler {
 	private MovimentacaoRepository repository;
 	
 	@Autowired
-	private CorrentistaService service;
+	private MovimentacaoService service;
 	
 	@GetMapping
 	public List<Movimentacao> findAll(){
@@ -31,8 +31,8 @@ public class MovimentacaoControler {
 	}
 	
 	@PostMapping
-	public void save(@RequestBody NovoCorrentista correntista) {
-		service.save(correntista);
+	public void save(@RequestBody NovaMovimentacao movimentacao) {
+		service.save(movimentacao);
 	}
 
 }
